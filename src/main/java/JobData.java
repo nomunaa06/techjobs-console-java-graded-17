@@ -95,7 +95,19 @@ public class JobData {
         loadData();
 
         // TODO - implement this method
-        return null;
+        ArrayList<HashMap<String, String>>  jobList = new ArrayList<>();
+        String uppercaseValue = value.toUpperCase();
+
+        for (HashMap<String, String> job : allJobs) {
+            for(String info : job.values()) {
+                if (info.toUpperCase().contains(uppercaseValue)) {
+                    jobList.add(job);
+                    break;
+                }
+            }
+        }
+
+        return jobList;
     }
 
     /**
